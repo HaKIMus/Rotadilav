@@ -9,10 +9,15 @@ class RotadilavTest extends \Codeception\Test\Unit
     public function testValidationShouldEndWithSuccess()
     {
         $login = 'Username';
+        $password = 'Password';
 
         $validator = new Rotadilav([
             $login => new Rules(
                 new Required()
+            ),
+            $password => new Rules(
+                new Required(),
+                new \Rotadilav\Rules\MaxLength(32)
             )
         ]);
 
