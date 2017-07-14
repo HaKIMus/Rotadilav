@@ -9,11 +9,11 @@
 namespace Rotadilav\Rules;
 
 
-final class Required extends RulesAbstract implements RulesInterface
+final class Required implements RulesInterface
 {
-    public function validate($param): void
+    public function validate($valueToValidate): void
     {
-        if (empty($param) || !isset($param) || is_null($param) ) {
+        if (empty($valueToValidate) || !isset($valueToValidate)) {
             throw new \InvalidArgumentException();
         }
     }

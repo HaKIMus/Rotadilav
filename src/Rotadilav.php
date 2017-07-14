@@ -19,10 +19,9 @@ final class Rotadilav
 
     public function validate(): void
     {
-        foreach ($this->params as $value => $validator) {
-            $rules = $validator->getRules();
-            foreach ($rules as $rule) {
-                $rule->validate($value);
+        foreach ($this->params as $dataToValidate => $validator) {
+            foreach ($validator->getRules() as $validatorRule) {
+                $validatorRule->validate($dataToValidate);
             }
         }
     }

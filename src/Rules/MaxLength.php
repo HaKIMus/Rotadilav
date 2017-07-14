@@ -8,11 +8,11 @@
 
 namespace Rotadilav\Rules;
 
-final class MaxLength extends RulesAbstract implements RulesInterface
+final class MaxLength extends IntRulesAbstract implements RulesInterface
 {
-    public function validate($param): void
+    public function validate($valueToValidate): void
     {
-        if (strlen($param) > $this->rule || !isset($this->rule)) {
+        if (strlen($valueToValidate) > $this->specifiedRule || !isset($valueToValidate)) {
             throw new \InvalidArgumentException();
         }
     }

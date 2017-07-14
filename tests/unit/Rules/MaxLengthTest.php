@@ -15,20 +15,20 @@ class MaxLengthTest extends \Codeception\Test\Unit
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testWithoutAnyRuleTestShouldReturnAnException()
+    public function testShouldEndWithAnException()
     {
-        $rule = new MaxLength();
+        $rule = new MaxLength(5);
 
-        $rule->validate('dwa');
+        $rule->validate('Hello World');
     }
 
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testShouldEndWithAnException()
+    public function testWithoutAnParameterShouldEndWithAnException()
     {
-        $rule = new MaxLength(10);
+        $rule = new MaxLength(2);
 
-        $rule->validate('Hello World');
+        $rule->validate(NULL);
     }
 }

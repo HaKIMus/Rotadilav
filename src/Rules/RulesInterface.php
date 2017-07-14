@@ -10,5 +10,5 @@ namespace Rotadilav\Rules;
 
 interface RulesInterface
 {
-    public function validate($param): void;
+    public function validate($valueToValidate): void;
 }

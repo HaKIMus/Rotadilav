@@ -8,12 +8,11 @@
 
 namespace Rotadilav\Rules;
 
-
-final class NoHigherThan extends RulesAbstract implements RulesInterface
+final class NoHigherThan extends IntRulesAbstract implements RulesInterface
 {
-    public function validate($param): void
+    public function validate($valueToValidate): void
     {
-        if ($param > $this->rule || !isset($param) || !is_int($param)) {
+        if ($valueToValidate > $this->specifiedRule || !isset($valueToValidate) || !is_int($valueToValidate)) {
             throw new \InvalidArgumentException();
         }
     }
