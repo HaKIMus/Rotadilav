@@ -1,6 +1,8 @@
 # Rotadilav
 Just an validator, made for fun.
 
+Requires PHP 7.1 or higher.
+
 Example of use:
 
 ```php

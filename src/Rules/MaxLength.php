@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hakim
- * Date: 12.07.17
- * Time: 05:13
- */
+
+declare(strict_types=1);
 
 namespace Rotadilav\Rules;
 

@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hakim
- * Date: 13.07.17
- * Time: 13:15
- */
+
+declare(strict_types=1);
 
 namespace Rotadilav\Rules;
-
 
 abstract class StringRulesAbstract
 {
