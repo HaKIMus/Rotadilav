@@ -32,4 +32,14 @@ class NoHigherThanTest extends \Codeception\Test\Unit
 
         $rule->validate(11);
     }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testNoIntegerParamShouldThrowException()
+    {
+        $rule = new NoHigherThan('10');
+
+        $rule->validate(11);
+    }
 }

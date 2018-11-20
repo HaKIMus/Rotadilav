@@ -6,6 +6,9 @@ namespace Rotadilav\Rules;
 
 final class NoHigherThan extends IntRulesAbstract implements RulesInterface
 {
+    /**
+     * @param int $valueToValidate
+     */
     public function validate($valueToValidate): void
     {
         if ($valueToValidate > $this->specifiedRule || !isset($valueToValidate) || !is_int($valueToValidate)) {
