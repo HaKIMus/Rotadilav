@@ -1,6 +1,7 @@
 <?php
 
 use Rotadilav\Rotadilav;
+use Rotadilav\Rules\JsonType;
 use Rotadilav\Rules\MaxLength;
 use Rotadilav\Rules\Required;
 use Rotadilav\Rules\Rules;
@@ -10,7 +11,7 @@ class RotadilavTest extends \Codeception\Test\Unit
     public function testValidationShouldEndWithSuccess()
     {
         $login = 'Username';
-        $password = 'Password';
+        $password = '"Password"';
 
         $validator = new Rotadilav([
             $login => new Rules(
@@ -18,7 +19,8 @@ class RotadilavTest extends \Codeception\Test\Unit
             ),
             $password => new Rules(
                 new Required(),
-                new MaxLength(32)
+                new MaxLength(32),
+                new JsonType()
             )
         ]);
 

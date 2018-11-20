@@ -16,10 +16,20 @@ class RequiredTest extends \Codeception\Test\Unit
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testWithNoParameterShouldEndWithAnException()
+    public function testWithNULLShouldEndWithAnException()
     {
         $rule = new Required();
 
         $rule->validate(null);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testWithEmptyParamShouldEndWithAnException()
+    {
+        $rule = new Required();
+
+        $rule->validate('');
     }
 }
