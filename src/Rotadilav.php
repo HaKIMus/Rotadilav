@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hakim
- * Date: 12.07.17
- * Time: 05:05
- */
+
+declare(strict_types=1);
 
 namespace Rotadilav;
 
@@ -19,10 +15,9 @@ final class Rotadilav
 
     public function validate(): void
     {
-        foreach ($this->params as $value => $validator) {
-            $rules = $validator->getRules();
-            foreach ($rules as $rule) {
-                $rule->validate($value);
+        foreach ($this->params as $dataToValidate => $validator) {
+            foreach ($validator->getRules() as $validatorRule) {
+                $validatorRule->validate($dataToValidate);
             }
         }
     }

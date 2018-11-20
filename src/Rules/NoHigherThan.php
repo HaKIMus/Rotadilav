@@ -1,19 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hakim
- * Date: 12.07.17
- * Time: 05:15
- */
+
+declare(strict_types=1);
 
 namespace Rotadilav\Rules;
 
-
-final class NoHigherThan extends RulesAbstract implements RulesInterface
+final class NoHigherThan extends IntRulesAbstract implements RulesInterface
 {
-    public function validate($param): void
+    /**
+     * @param int $valueToValidate
+     */
+    public function validate($valueToValidate): void
     {
-        if ($param > $this->rule || !isset($param) || !is_int($param)) {
+        if ($valueToValidate > $this->specifiedRule || !isset($valueToValidate) || !is_int($valueToValidate)) {
             throw new \InvalidArgumentException();
         }
     }

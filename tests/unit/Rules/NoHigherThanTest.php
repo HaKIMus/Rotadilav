@@ -16,16 +16,6 @@ class NoHigherThanTest extends \Codeception\Test\Unit
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testWithoutAnyRuleTestShouldReturnAnException()
-    {
-        $rule = new NoHigherThan();
-
-        $rule->validate(3);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testWithStringShouldEndWithAnException()
     {
         $rule = new NoHigherThan(10);
@@ -39,6 +29,16 @@ class NoHigherThanTest extends \Codeception\Test\Unit
     public function testWithHigherNumberShouldEndWithAnException()
     {
         $rule = new NoHigherThan(10);
+
+        $rule->validate(11);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testNoIntegerParamShouldThrowException()
+    {
+        $rule = new NoHigherThan('10');
 
         $rule->validate(11);
     }

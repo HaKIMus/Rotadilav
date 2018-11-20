@@ -1,6 +1,7 @@
 <?php
 
 use Rotadilav\Rotadilav;
+use Rotadilav\Rules\MaxLength;
 use Rotadilav\Rules\Required;
 use Rotadilav\Rules\Rules;
 
@@ -17,7 +18,7 @@ class RotadilavTest extends \Codeception\Test\Unit
             ),
             $password => new Rules(
                 new Required(),
-                new \Rotadilav\Rules\MaxLength(32)
+                new MaxLength(32)
             )
         ]);
 
@@ -33,7 +34,7 @@ class RotadilavTest extends \Codeception\Test\Unit
 
        $validator = new Rotadilav([
            $login => new Rules(
-               new \Rotadilav\Rules\MaxLength(20)
+               new MaxLength(20)
            )
        ]);
 

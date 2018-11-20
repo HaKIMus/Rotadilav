@@ -1,19 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hakim
- * Date: 13.07.17
- * Time: 13:36
- */
+
+declare(strict_types=1);
 
 namespace Rotadilav\Rules;
 
-
-final class Required extends RulesAbstract implements RulesInterface
+final class Required implements RulesInterface
 {
-    public function validate($param): void
+    public function validate($valueToValidate): void
     {
-        if (empty($param) || !isset($param) || is_null($param) ) {
+        if (empty($valueToValidate) || !isset($valueToValidate)) {
             throw new \InvalidArgumentException();
         }
     }
